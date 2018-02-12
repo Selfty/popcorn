@@ -1,0 +1,39 @@
+{% extends 'serials/base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+
+Online seriály zdarma
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid background-orange-base">
+<div class="row-fluid">
+<a href="{% url 'serial' name=toppost.name %}">
+<img src="../../static/media/{{toppost.image}}" class="img-responsive">
+</a>
+</div>
+</div>
+
+<div class="container">
+{% for serial in serials %}
+<div class="row-fluid my-serials">
+<a href="{%  url 'serial' name=serial.name %}"><img src="../../static/media/{{serial.image}}"></img></a>
+<div class="my-serials-text">
+<a href="{%  url 'serial' name=serial.name %}">
+<h2>{{serial.title}}</h2>
+<p>
+{{serial.sub_title}}
+</p>
+</a>
+{{serial.url1}}
+
+
+</div>
+</div>
+{% endfor %}
+</div>
+
+{% endblock %}
