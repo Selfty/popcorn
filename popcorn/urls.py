@@ -1,6 +1,6 @@
 from django.conf.urls import include, url
 from django.contrib import admin
-
+app_name="popcorn"
 urlpatterns = [
     # Examples:
     # url(r'^$', 'popcorn.views.home', name='home'),
