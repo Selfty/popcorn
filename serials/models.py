@@ -25,11 +25,11 @@ class Post(models.Model):
 class Serials(models.Model):
     name = models.CharField(max_length=200, default='American_dad')
     title = models.CharField(max_length=200)
-    title_cz = models.TextField(default='')
     sub_title = models.TextField(default='')
     url1 = models.CharField(max_length=400)
     url2 = models.CharField(max_length=400)
     image = models.CharField(max_length=200)
+    title_cz = models.TextField(default='')
     start_yr = models.IntegerField(default=0)
     end_yr = models.IntegerField(default=0)
     zaner = models.TextField(default='')
