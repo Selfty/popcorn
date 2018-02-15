@@ -9,12 +9,12 @@ Online seriály zdarma
 
 {% block content %}
 
-<div class="container-fluid background-orange-base">
-<div class="row-fluid">
+<div class="container background-orange-base" style="background-color:transparent;">
+
 <a href="{% url 'serial' name=toppost.name %}">
-<img src="../../static/media/{{toppost.image}}" class="img-responsive">
+<img class="img-responsive" src="../../static/media/{{toppost.image}}" width="1110" style="width:100%;max-height:360px;height:auto;margin: 25px 0 25px 0;">
 </a>
-</div>
+
 </div>
 
 <div class="container">

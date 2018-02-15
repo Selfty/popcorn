@@ -43,8 +43,8 @@ a, a:hover{
 
 
 .my-items{
-	margin-top: 25px;
 	background-color: #1a1a1a;
+	overflow: hidden;
 	
 }
 
@@ -56,6 +56,10 @@ a, a:hover{
 	text-decoration: none;
 }
 
+.my-items h2{
+	margin-top: 15px;
+	margin-left: 15px;
+}
 .series{
 	color: #777;
 	font-size: 2em;
@@ -105,33 +109,22 @@ a, a:hover{
 }
 
 .background-orange-base {
-	margin-top: 20px;
-	margin-bottom: 20px;
-	/*background-color: #dc3e3e;*/
-	background: url('');
+
 }
 
 .background-orange-base img{
 	background-color: black;
 	transition: opacity .5s;
 	opacity: 1;
-	height: 360px;
-	width: 1200px;
+
 }
 
 .background-orange-base img:hover{
 	opacity: 0.8;
 }
 
-.row-fluid{
-	text-align:center;
-}
 
-.img-responsive{
-	background-color: black;
-	margin:0 auto 0 auto;
-	border-radius: 25px;
-}
+
 
 .rounded_detail{
 	border-radius: 15px;;
@@ -179,10 +172,21 @@ a, a:hover{
 
 .text-white{
 	color: white;
+	text-align: center;
+	overflow:hidden;
+}
+
+.text-white h1{
+	margin: 15px 0 15px 0;
 }
 
 .post_detail_title{
 	margin-left: 15px;
+}
+
+.row-serie-item:hover{
+	transition: background-color .5s;
+	background-color: #0d0d0d;
 }
 
 

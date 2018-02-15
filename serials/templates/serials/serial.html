@@ -3,29 +3,31 @@
 
 {% block title %}
 
-{{serial.title}}
+Serial {{serial.title}} online
 
 {% endblock %}
 
 
 {% block content %}
-
-<div class="container-fluid background-orange-base">
-<div class="row-fluid">
-<img src="../../static/media/{{ser_img.url2_cz}}" class="img-responsive"></img>
+<div class="container background-orange-base" style="background-color:transparent;">
+<a href="{% url 'serial' name=serial.name %}">
+<img class="img-responsive" src="../../static/media/{{ser_img.url2_cz}}" width="1110" style="width:100%;max-height:360px;height:auto;margin: 25px 0 25px 0;">
+</a>
 </div>
-</div>
-
-
 <div class="container text-white">
+<div style="background-color: #0d0d0d;padding-top: 5px;padding-bottom: 5px;margin-bottom:15px;">
 <div class="row-fluid">
 <h1>{{serial.title}}</h1>
 </div>
 <div class="row-fluid">
-<p>{{serial.url2}}<p>
+<p>{{serial.delka}} MIN | {{serial.start_yr}} - {{serial.end_yr}} | {{serial.url1}}%<p>
+</div>
+</div>
+<div class="row-fluid">
+<p>{{serial.sub_title}}<p>
 </div>
 {% for serie in series %}
-<div class="row-fluid">
+<div class="row-fluid row-serie-item">
 
 <button class="dropdown-btn">
 <div class="col-sm-12">

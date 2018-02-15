@@ -1,4 +1,6 @@
 *.pyc
 __pycache__
 myvenv
+popcorn/settings.py
+serials/migrations
 .DS_Store
