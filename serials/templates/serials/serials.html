@@ -11,29 +11,24 @@ Online seriály zdarma
 
 <div class="container background-orange-base" style="background-color:transparent;">
 
-<a href="{% url 'serial' name=toppost.name %}">
-<img class="img-responsive" src="../../static/media/{{toppost.image}}" width="1110" style="width:100%;max-height:360px;height:auto;margin: 25px 0 25px 0;">
-</a>
-
+	<a href="{% url 'serial' name=toppost.name %}">
+		<img class="img-responsive" src="../../static/media/{{toppost.image}}" width="1110" 			style="width:100%;max-height:360px;height:auto;margin: 25px 0 25px 0;">
+	</a>
 </div>
-
 <div class="container">
-{% for serial in serials %}
-<div class="row-fluid my-serials">
-<a href="{%  url 'serial' name=serial.name %}"><img src="../../static/media/{{serial.image}}"></img></a>
-<div class="my-serials-text">
-<a href="{%  url 'serial' name=serial.name %}">
-<h2>{{serial.title}}</h2>
-<p>
-{{serial.sub_title}}
-</p>
-</a>
-{{serial.url1}}
-
-
-</div>
-</div>
-{% endfor %}
+	{% for serial in serials %}
+	<div class="row-fluid my-serials">
+		<a href="{%  url 'serial' name=serial.name %}"><img src="../../static/media/	{{serial.image}}"></img></a>
+		<div class="my-serials-text">
+			<a href="{%  url 'serial' name=serial.name %}">
+			<h2>{{serial.title}}</h2> {{serial.url1}}% | {{serial.delka}} MIN | {{serial.start_yr}} - {{serial.end_yr}}
+			<p>
+			{{serial.sub_title}}
+			</p>
+			</a>
+		</div>
+	</div>
+	{% endfor %}
 </div>
 
 {% endblock %}
