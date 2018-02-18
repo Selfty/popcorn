@@ -23,7 +23,7 @@ Online seriály zdarma
 			<a href="{%  url 'serial' name=serial.name %}">
 			<h2>{{serial.title}}</h2> {{serial.url1}}% | {{serial.delka}} MIN | {{serial.start_yr}} - {{serial.end_yr}}
 			<p>
-			{{serial.sub_title}}
+			{{serial.sub_title|truncatechars:320}}
 			</p>
 			</a>
 		</div>

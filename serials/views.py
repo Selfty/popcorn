@@ -52,11 +52,10 @@ def serial(request, name):
     series = []
     serial = get_object_or_404(Serials, name=name)
     episodes = Post.objects.filter(name=name)
-    ser_img = episodes.first()
     episodes = episodes.values('serie').distinct()
     
     for ep in episodes:
         series.append(Post.objects.filter(name=name, serie=ep['serie']).order_by('episode'))
 
-    return render(request, 'serials/serial.html', {'serial' : serial, 'series' : series, 'ser_img' : ser_img})
+    return render(request, 'serials/serial.html', {'serial' : serial, 'series' : series})
     
