@@ -10,10 +10,9 @@
 	<link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	
          <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-     </head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>     
+</head>
      <body>
-
-
 <nav class="navbar navbar-expand-lg top-fixed" style="background-color:#1a1a1a">
   <a class="navbar-brand" href="{% url 'post_list' %}" style="color:#dc3e3e"><img src="{% static 'media/popcorn.png' %}" style="height: 40px;transform:rotate(10deg);"></img></a>
 
@@ -23,9 +22,13 @@
         <a class="nav-link" href="{% url 'serials' %}" style="color:white">Serialy</a>
       </li>
     </ul>
-    <form class="form-inline ">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search">
-    </form>
+    <form class="mk-search-form" method="GET">
+      <input class="search form-control mr-sm-2" id="search" type="search" placeholder="Search" onkeyup="f(this.value)" autocomplete="off">
+      
+    <div id="demo">
+	</div>
+</form>
+
 
 	
   </div>
@@ -35,6 +38,24 @@
       <img class="logo" src="{% static 'media/logo.png' %}" style="margin-bottom:15px;"></img>       
 	</a>
 </div>
+<script type="application/javascript">
+function f(value){
+
+$.ajax({
+    type: "GET",
+    url: '/api/get_array/'+value,
+    success: function(json){
+        document.getElementById("demo").innerHTML = json["content"]["serial"];
+    },
+    error: function(jqXHR, textStatus, errorThrown){
+        window.alert(errorThrown);
+    }
+});
+}
+
+
+</script>
+
 
              {% block content %}
              {% endblock %}
@@ -43,5 +64,6 @@
          
 
 </body>
+
 </html>
 

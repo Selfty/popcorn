@@ -1,6 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from .models import Post, Serials, Topserials
+from django.http import JsonResponse
+from django.views.generic.base import View
+from django_ajax.decorators import ajax
 
 def post_list(request):
     posts = Post.objects.filter(created_date__lte=timezone.now()).order_by('created_date')[:12]
@@ -36,8 +39,12 @@ def post_detail(request, name, sn, en):
         prev = Post.objects.filter(name=name,serie=prev_se).order_by('episode').last()
     else:
     	prev = None
+	
+	#serial
+
+    serial = get_object_or_404(Serials, name=name)
 		
-    return render(request, 'serials/post_detail.html', {'post' : post,'next' : next,'prev' : prev,'toppost' : toppost})
+    return render(request, 'serials/post_detail.html', {'post' : post,'next' : next,'prev' : prev,'toppost' : toppost, 'serial' : serial})
 
 def serials(request):
 
@@ -59,3 +66,10 @@ def serial(request, name):
 
     return render(request, 'serials/serial.html', {'serial' : serial, 'series' : series})
     
+@ajax
+def get(request, uid):
+    serial = Serials.objects.filter(name__contains=uid)
+    if serial :
+        return {'serial' : serial}
+    else:
+        return {'searial' : ''}
