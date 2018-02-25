@@ -19,20 +19,20 @@
 
 <div class="my-title">
 	<div class="row">
-		<div class="col-sm-4">
+		<div class="col-sm-3">
 			<a href="{% url 'serial' name=post.name %}">
-			<img src="../../../static/media/{{serial.image}}"></img>
+			<img class="img-responsive"src="../../../static/media/{{serial.image}}"> 
 			</a>
 		</div>
-		<div class="col-sm-8">
-				<div class="col-12 post_detail_title">
+		<div class="col-sm-9" >
+				<div class="col-12 post_detail_title" style="padding-left:0px;">
 					
 					<h2><a href="{% url 'serial' name=post.name %}">{{post.title}} </a>- s{{post.serie}}e{{post.episode}}</h2>
 					
 				</div>
 			<div class="row">
 				<div class="col-12 post_detail_title">
-					<h3>{{post.sub_title}}</h3>
+					<h3>{{post.url2}}</h3>
 				</div>
 			</div>
 		</div>

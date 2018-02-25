@@ -72,4 +72,10 @@ def get(request, uid):
     if serial :
         return {'serial' : serial}
     else:
-        return {'searial' : ''}
+        return {'serial' : ''}
+
+@ajax
+def gett(request):
+    return {'serial' : ''}
+
+

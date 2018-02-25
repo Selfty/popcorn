@@ -1,11 +1,11 @@
 body{
-	background: URL('https://i.pinimg.com/originals/c2/74/3d/c2743d1b5940414da9af14081afa8467.jpg');
+	background: URL('http://static.hdw.eweb4.com/media/wallpapers_dl/1/40/390286-web-black-background.jpg');
 	background-color: black;
 	background-size:     cover;                     
 	background-repeat:   no-repeat;
 	background-position: top center; 
 }
-
+https://i.pinimg.com/originals/c2/74/3d/c2743d1b5940414da9af14081afa8467.jpg,
 a, a:hover{
 	text-decoration: none; 
 	color: #777;
@@ -180,20 +180,58 @@ a, a:hover{
 	margin: 15px 0 15px 0;
 }
 
-.post_detail_title{
-	margin-left: 15px;
-}
+
 
 .row-serie-item:hover{
 	transition: background-color .5s;
 	background-color: #0d0d0d;
 }
 
-.demo{	
+.mk-search-form{
+	position:relative;
+	width: 300px;
+}
+
+.search{
+	background-color: #0d0d0d;
+	border-color: #0d0d0d;
+}
+
+.search:focus {
+	background-color: #0d0d0d;
+	border-color: #0d0d0d;
+}
+
+#demo{	
 	margin-top:6px;
 	position: absolute;
+	background-color: white;
 	z-index:9999;
 	width: 300px;
+}
+
+#demo a{	
+	text-decoration: none;
+	color: white;
+}
+
+#demo ul{
+	background-color:#0d0d0d;
+	margin-bottom: 0px;
+	padding-left: 0px;
+}
+
+#demo li{
+	margin-left: 0px;
+	list-style-type: none;
+	height: 45px;
+	padding-top: 10px;
+	padding-left: 15px;
+}
+
+#demo li:hover{	
+	transition: background-color .5s;
+	background-color: #111;
 }
 
 // dropdown menu
