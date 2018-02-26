@@ -13,7 +13,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>     
 </head>
      <body>
-<nav class="navbar navbar-expand-lg top-fixed" style="background-color:#1a1a1a">
+<nav class="navbar navbar-expand-sm top-fixed" style="background-color:#1a1a1a">
   <a class="navbar-brand" href="{% url 'post_list' %}" style="color:#dc3e3e"><img src="{% static 'media/popcorn.png' %}" style="height: 40px;transform:rotate(10deg);"></img></a>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
@@ -21,16 +21,12 @@
       <li class="nav-item">
         <a class="nav-link" href="{% url 'serials' %}" style="color:white">Serialy</a>
       </li>
-    </ul>
-    <form class="mk-search-form" method="GET">
-      <input class="search form-control mr-sm-2" id="search" type="search" placeholder="Search" onkeyup="f(this.value)" autocomplete="off">
-      
-    <div id="demo">
+    </ul>  
+	<form class="mk-search-form" method="GET">
+		<input class="search form-control mr-sm-2" id="search" type="search" placeholder="Hledej serial" onkeyup="f(this.value)" autocomplete="off">     
+	<div id="demo">
 	</div>
-</form>
-
-
-	
+	</form>	
   </div>
 </nav>
 <div class="container row-fluid" style="text-align:center;">
