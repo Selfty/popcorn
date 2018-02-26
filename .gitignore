@@ -2,5 +2,5 @@
 __pycache__
 myvenv
 popcorn/settings.py
-serials/migrations
+serials/migrations/*
 .DS_Store
