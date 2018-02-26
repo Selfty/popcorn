@@ -5,7 +5,7 @@ body{
 	background-repeat:   no-repeat;
 	background-position: top center; 
 }
-https://i.pinimg.com/originals/c2/74/3d/c2743d1b5940414da9af14081afa8467.jpg,
+
 a, a:hover{
 	text-decoration: none; 
 	color: #777;
@@ -90,6 +90,7 @@ a, a:hover{
 .my-title h2, a{
 	color: white;
 	margin-top: 10px;
+	text-decoration: none;
 }
 
 .my-title a:hover{
