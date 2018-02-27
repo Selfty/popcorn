@@ -6,7 +6,7 @@ from django.views.generic.base import View
 from django_ajax.decorators import ajax
 
 def post_list(request):
-    posts = Post.objects.filter(created_date__lte=timezone.now()).order_by('created_date')[:12]
+    posts = Post.objects.order_by('-created_date')[:12]
     toppost = Topserials.objects.first()
     return render(request, 'serials/post_list.html', {'posts' : posts, 'toppost' : toppost})
 
