@@ -78,6 +78,6 @@ def get(request, uid):
 def gett(request):
     return {'serial' : ''}
 
-def google(request):
+def googlebc7a06bd22316fbfhtml(request):
     return render(request, 'serials/googlebc7a06bd22316fbf.html',{})
 
