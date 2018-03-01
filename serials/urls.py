@@ -1,4 +1,5 @@
 from django.conf.urls import url
+from django.http import HttpResponse
 from . import views
 
 
@@ -9,4 +10,5 @@ urlpatterns = [
 	url(r'^serial/(?P<name>([\w ]+))/$', views.serial, name='serial'),
 	url(r'^api/get_array/(?P<uid>([\w ]+))$', views.get, name='get_array'),
 	url(r'^api/get_array/$', views.gett, name='get_array'),
+	url(r'^robots\.txt$', lambda x: HttpResponse("User-agent: *\nDisallow: /api")),
 ]
