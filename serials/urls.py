@@ -9,7 +9,8 @@ urlpatterns = [
 	url(r'^serial/(?P<name>([\w ]+))/$', views.serial, name='serial'),
 	url(r'^api/get_array/(?P<uid>([\w ]+))$', views.get, name='get_array'),
 	url(r'^api/get_array/$', views.gett, name='get_array'),
-	url(r'^googlebc7a06bd22316fbf\.html$', lambda r: HttpResponse("google-site-verification: googlebc7a06bd22316fbf.html", mimetype="text/plain")),
+	(r'^googlebc7a06bd22316fbf\.html$', lambda r: HttpResponse("google-site-verification: googlebc7a06bd22316fbf.html", mimetype="text/plain")),
+	(r'^robots\.txt$', lambda r: HttpResponse("User-agent: *\nDisallow: ", mimetype="text/plain")),
 
 
 ]
