@@ -18,13 +18,14 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
 	<link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>     
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+{%block head%}{%endblock%}    
 </head>
 <body>
 	<nav class="navbar navbar-expand-sm top-fixed" style="background-color:#1a1a1a">
 		<a class="navbar-brand" href="{% url 'post_list' %}" style="color:#dc3e3e"><img src="{% static 'media/popcorn.png' %}" style="height: 40px;transform:rotate(10deg);"></img></a>
 
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+  <div class="navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link" href="{% url 'serials' %}" style="color:white">Serialy</a>
@@ -72,9 +73,17 @@ $.ajax({
 
              {% block content %}
              {% endblock %}
-        
+<div class="container" style="padding:25px;background-color:#0d0d0d">
+	<div class="row">
+		<div class="col-sm-6">
+			2018 OnlineCZserialy.cz
+		</div>
+		<div class="col-sm-6">
+			<a href="{% url 'dmca' %}"> Podminky / DMCA </a>
+		</div>
+	</div>
+</div>
 
-         
 
 </body>
 

@@ -19,8 +19,8 @@ OnlineCZserialy - online seriály zdarma
 <div class="container">
 <div class="my-items">
 <h2 style="color: white;">Nově přidáno</h2>
-<div class="row">
 {% for post in posts %}
+{% if forloop.first %}<div class="row">{% endif %}
 <div class="col-md-4"> 
 <a href="{% url 'post_detail' name=post.name sn=post.serie en=post.episode %}" class="badge">
 	<h1 style="color:#777">{{ post.title }}</h1>    
@@ -30,7 +30,8 @@ OnlineCZserialy - online seriály zdarma
          </div>
 </a>
 </div>
-
+{% if forloop.counter|divisibleby:3 %}</div><div class="row">{% endif %}
+{% if forloop.last %}</div>{% endif %}
 
 {% endfor %}
 </div>
