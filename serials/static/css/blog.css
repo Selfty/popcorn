@@ -11,6 +11,26 @@ a, a:hover{
 	color: #777;
 }
 
+h1 {
+  /* Extra small devices (phones, less than 768px) */
+  font-size: 20px;
+
+  /* Small devices (tablets, 768px and up) */
+  @media (min-width: 768px) {
+    font-size: 26px;
+  }
+
+  /* Medium devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+    font-size: 32px;
+  }
+
+  /* Large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+    font-size: 38px;
+  }
+}
+
 .container{
 	background-color: #1a1a1a;
 }
@@ -62,7 +82,8 @@ a, a:hover{
 }
 .series{
 	color: #777;
-	font-size: 2em;
+	font-size: 1.5em;
+	margin: 5px;
 }
 
 .badge{
@@ -315,3 +336,4 @@ a, a:hover{
   content: url('../media/sipka.png');
   width:10px;
 }
+
