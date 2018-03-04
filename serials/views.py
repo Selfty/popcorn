@@ -66,6 +66,8 @@ def serial(request, name):
 
     return render(request, 'serials/serial.html', {'serial' : serial, 'series' : series})
     
+def dmca(request):
+    return render(request, 'serials/dmca.html',{})
 
 @ajax
 def get(request, uid):
