@@ -52,7 +52,6 @@ $.ajax({
     success: function(json){
 	var ara = new Array(json["content"]["serial"]);
 	var content = '<ul>';
-	var host = window.location.host;
 	for(index = 0; index < ara[0]["length"]; index++){
 		console.log(ara[0][index]);
 		content = content.concat("<a href=/serial/" , ara[0][index].replace(" ","%20")  , "><li>" , ara[0][index] , "</li></a>");
