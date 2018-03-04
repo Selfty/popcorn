@@ -71,7 +71,7 @@ def dmca(request):
 
 @ajax
 def get(request, uid):
-    serial = Serials.objects.filter(name__contains=uid)[:2]
+    serial = Serials.objects.filter(title__contains=uid).order_by('title')
     if serial :
         return {'serial' : serial}
     else:

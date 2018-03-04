@@ -55,6 +55,7 @@ $.ajax({
 	for(index = 0; index < ara[0]["length"]; index++){
 		console.log(ara[0][index]);
 		content = content.concat("<a href=/serial/" , ara[0][index].replace(" ","%20")  , "><li>" , ara[0][index] , "</li></a>");
+		if(index === 3){break;}
 	}
 	content = content.concat("</ul>");
         document.getElementById("demo").innerHTML = content;
@@ -73,6 +74,16 @@ $.ajax({
              {% block content %}
              {% endblock %}
 
+<div class="container" style="padding:25px;background-color:#0d0d0d">
+	<div class="row">
+		<div class="col-sm-6">
+			2018 OnlineCZserialy.cz
+		</div>
+		<div class="col-sm-6">
+			<a href="{% url 'dmca' %}"> Podminky / DMCA </a>
+		</div>
+	</div>
+</div>
 
 
 </body>
