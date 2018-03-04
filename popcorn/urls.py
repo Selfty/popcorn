@@ -8,7 +8,6 @@ urlpatterns = [
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'', include('serials.urls')),
-    url(r'', include('webmaster_verification.urls')),
     
 
 ]
