@@ -51,7 +51,7 @@ def serials(request):
 
 	#episode nebo 404
 
-    serials = Serials.objects.all()
+    serials = Serials.objects.all().order_by('title')
     #episodes = get_object_or_404(Post, name=name)
     toppost = Topserials.objects.first()
     return render(request, 'serials/serials.html', {'serials' : serials,'toppost' : toppost})

@@ -1,8 +1,7 @@
 body{
-	background: URL('http://static.hdw.eweb4.com/media/wallpapers_dl/1/40/390286-web-black-background.jpg');
-	background-color: black;
-	background-size:     cover;                     
-	background-repeat:   no-repeat;
+	/*background: URL('http://static.hdw.eweb4.com/media/wallpapers_dl/1/40/390286-web-black-background.jpg');*/
+	background-color: black;                     
+	background-repeat:   repeat-y;
 	background-position: top center; 
 }
 
