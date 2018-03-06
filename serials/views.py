@@ -90,7 +90,7 @@ class PostSitemap(Sitemap):
         return Post.objects.all()
 
     def lastmod(self, obj):
-        return obj.created_date 
+        return obj.created_date
 
 class SerialsSitemap(Sitemap):
     changefreq = "weekly"
