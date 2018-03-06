@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 
 
+
 class Post(models.Model):
     title = models.CharField(max_length=200)
     name = models.CharField(max_length=200, default='American_dad')
@@ -21,6 +22,8 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+    def get_absolute_url(self):
+        return '/{0}/{1}/{2}/'.format(self.name, self.serie, self.episode)
 
 class Serials(models.Model):
     name = models.CharField(max_length=200, default='American_dad')
@@ -41,6 +44,9 @@ class Serials(models.Model):
 
     def __str__(self):
         return self.title
+   
+    def get_absolute_url(self):
+        return '/{0}/'.format(self.name)
 
 class Topserials(models.Model):
     name = models.CharField(max_length=200, default='Brickleberry')

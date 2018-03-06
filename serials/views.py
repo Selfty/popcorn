@@ -4,6 +4,7 @@ from .models import Post, Serials, Topserials
 from django.http import JsonResponse
 from django.views.generic.base import View
 from django_ajax.decorators import ajax
+from django.contrib.sitemaps import Sitemap
 
 def post_list(request):
     posts = Post.objects.order_by('-created_date')[:12]
@@ -14,8 +15,8 @@ def post_detail(request, name, sn, en):
 
 	#episode nebo 404
 
-    post = get_object_or_404(Post, name=name, serie=sn, episode=en)
-    toppost = Topserials.objects.first()
+    post = get_object_or_404(Post, name=name, serie=sn, episode=en).first()
+    toppost = Topserials.objects
 	#next episode
 
     next_ep = int(en)+1
@@ -81,3 +82,22 @@ def get(request, uid):
 def gett(request):
     return {'serial' : ''}
 
+class PostSitemap(Sitemap):
+    changefreq = "daily"
+    priority = 0.5
+
+    def items(self):
+        return Post.objects.all()
+
+    def lastmod(self, obj):
+        return obj.created_date 
+
+class SerialsSitemap(Sitemap):
+    changefreq = "monthly"
+    priority = 1
+
+    def items(self):
+        return Serials.objects.all()
+
+    def lastmod(self, obj):
+        return timezone.now()
