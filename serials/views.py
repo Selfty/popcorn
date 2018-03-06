@@ -83,7 +83,7 @@ def gett(request):
     return {'serial' : ''}
 
 class PostSitemap(Sitemap):
-    changefreq = "daily"
+    changefreq = "never"
     priority = 0.5
 
     def items(self):
@@ -93,7 +93,7 @@ class PostSitemap(Sitemap):
         return obj.created_date 
 
 class SerialsSitemap(Sitemap):
-    changefreq = "monthly"
+    changefreq = "weekly"
     priority = 1
 
     def items(self):
