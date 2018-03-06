@@ -15,7 +15,7 @@ def post_detail(request, name, sn, en):
 
 	#episode nebo 404
 
-    post = get_object_or_404(Post, name=name, serie=sn, episode=en).first()
+    post = get_object_or_404(Post, name=name, serie=sn, episode=en)
     toppost = Topserials.objects
 	#next episode
 
