@@ -46,7 +46,7 @@ class Serials(models.Model):
         return self.title
    
     def get_absolute_url(self):
-        return '/{0}/'.format(self.name)
+        return '/serial/{0}/'.format(self.name)
 
 class Topserials(models.Model):
     name = models.CharField(max_length=200, default='Brickleberry')
