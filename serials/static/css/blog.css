@@ -34,6 +34,11 @@ h1 {
 	background-color: #1a1a1a;
 }
 
+.row select{
+	width: 150px;
+	background-color: black;
+}
+
 .navbar-brand:hover{
 	transition: opacity .5s;
 	opacity: .7;
