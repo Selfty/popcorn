@@ -60,7 +60,7 @@ def serial(request, name):
     series = []
     serial = get_object_or_404(Serials, name=name)
     episodes = Post.objects.filter(name=name)
-    episodes = episodes.values('serie').distinct()
+    episodes = episodes.values('serie').distinct().order_by('serie')
     
     for ep in episodes:
         series.append(Post.objects.filter(name=name, serie=ep['serie']).order_by('episode'))

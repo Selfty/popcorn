@@ -44,12 +44,15 @@ film-serial.sk
 """
 
 
-html = urllib2.urlopen('https://www.film-serial.sk/products/futurama/')
+html = urllib2.urlopen('https://www.film-serial.sk/products/american-horror-story/')
 soup = BeautifulSoup.BeautifulSoup(html)
 soup = soup.find('div', attrs={'class':'wrapperText'})
 series = []
 for serie in soup.findAll('a'):
 	series.append(serie['href'])
+	print serie['href']
+
+
 for page in series:
 	html = urllib2.urlopen(page)
 	soup = BeautifulSoup.BeautifulSoup(html)
