@@ -16,29 +16,7 @@ Online seriály zdarma
 	</a>
 </div>
 <div class="container">
-<div class="row">
-	<div class="col-4-sm">
-	<form>
-		<select type="selectbox" name="vyber1">
-			<option value="akcni">akcni</option>
-		</select>
-	</form>
-	</div>
-	<div class="col-4-sm">
-	<form>
-		<select type="selectbox" name="vyber1">
-			<option value="akcni">akcni</option>
-		</select>
-	</form>
-	</div>
-	<div class="col-4-sm">
-	<form>
-		<select type="selectbox" name="vyber1">
-			<option value="akcni">akcni</option>
-		</select>
-	</form>
-	</div>
-</div>
+
 
 	{% for serial in serials %}
 	<a href="{%  url 'serial' name=serial.name %}" style="margin:0;" data-zaner="{{serial.zaner}}" data-start="{{serial.start_yr}}" data-end="{{serial.end_yr}}" data-title="{{serial.title}}">

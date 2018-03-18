@@ -2,7 +2,7 @@ from BeautifulSoup import BeautifulSoup
 import urllib2
 import re
 
-*****
+*****************************
 
 tv.rikrek.cz
 
@@ -23,7 +23,7 @@ for lin in links:
 	soup = BeautifulSoup(html_page)	
 	print soup.find('source')['src']
 
-*****************************
+******************************
 film-serial.cz	
 
 html_page = urllib2.urlopen("http://film-serial4.webnode.sk/serialy/south-park/a18-serie/")
@@ -37,5 +37,25 @@ for lin in links:
 	html_page = urllib2.urlopen(lin)	
 	soup = BeautifulSoup(html_page)	
 	print soup.findAll('iframe')[0]['src'].replace("	", "")
+
+*******************************
+"""
+film-serial.sk
+"""
+
+
+html = urllib2.urlopen('https://www.film-serial.sk/products/futurama/')
+soup = BeautifulSoup.BeautifulSoup(html)
+soup = soup.find('div', attrs={'class':'wrapperText'})
+series = []
+for serie in soup.findAll('a'):
+	series.append(serie['href'])
+for page in series:
+	html = urllib2.urlopen(page)
+	soup = BeautifulSoup.BeautifulSoup(html)
+	for episode in soup.findAll('div',attrs={'class':'boxTitle'}):
+		html = urllib2.urlopen('https://www.film-serial.sk' + episode.find('a')['href'])
+		soup = BeautifulSoup.BeautifulSoup(html)
+		print soup.find('iframe')['src'].replace("	","")
 
 
