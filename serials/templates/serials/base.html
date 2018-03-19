@@ -54,17 +54,17 @@ function f(value){
 $.ajax({
     type: "GET",
     url: '/api/get_array/'+value,
-    success: function(json){
-	var ara = new Array(json["content"]["serial"]);
-	var content = '<ul>';
-	for(index = 0; index < ara[0]["length"]; index++){
-		console.log(ara[0][index]);
-		content = content.concat("<a href=/serial/" , ara[0][index].replace(" ","%20")  , "><li>" , ara[0][index] , "</li></a>");
-		if(index === 3){break;}
-	}
+    dataType: 'json',
+    success: function(serials){
+	var my = JSON.parse(serials["content"]);
+	var content = "<ul>";
+	$.each(my,function(index, value){
+		content = content.concat("<a href=\"/serial/" + value.name + "/\"><li>");	
+		content = content.concat(value.title);	
+		content = content.concat("</li></a>");		
+		});
 	content = content.concat("</ul>");
-        document.getElementById("demo").innerHTML = content;
-	if(ara[0]===""){document.getElementById("demo").innerHTML = '';}
+	document.getElementById("demo").innerHTML = content;
     },
     error: function(jqXHR, textStatus, errorThrown){
          document.getElementById("demo").innerHTML = '';
