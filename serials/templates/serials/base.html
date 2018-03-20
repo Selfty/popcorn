@@ -95,3 +95,21 @@ $.ajax({
 
 </html>
 
+<script type="text/javascript">
+
+	function disableEnterKey(evt) {
+
+	var evt = (evt) ? evt : ((event) ? event : null);
+
+	var elem = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
+
+	if ((evt.keyCode == 13) && (elem.type=='search'))  {return false;}
+
+	}
+
+	 
+
+	document.onkeypress = disableEnterKey;
+
+	</script>
+
