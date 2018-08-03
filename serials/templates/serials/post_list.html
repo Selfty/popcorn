@@ -32,7 +32,10 @@ Baví tě sledovat seriály? U nás si příjdeš na své. Vše jse online a zda
 	<img src="../../static/media/{{post.url2_cz}}"></img>
          <div class="series">
              {{ post.serie }}x{{post.episode}}
-         </div>
+		<div class="dab_cz">		
+		{% if post.url1_cc == 1 %} Cc {% endif %}{% if post.url2_cc == 1 %} Dab {% endif %}
+		</div>         
+	</div>
 </a>
 </div>
 

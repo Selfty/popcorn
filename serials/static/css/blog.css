@@ -90,6 +90,12 @@ h1 {
 	margin: 5px;
 }
 
+.dab_cz{
+	display: inline;
+	color: white;
+	font-size: 0.7em;
+}
+
 .badge{
 	background-color: #0d0d0d;
 	margin-bottom: 15px;
