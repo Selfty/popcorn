@@ -42,7 +42,7 @@ Serial {{serial.title}} online
 {% for episode in serie %}
 <a href="{% url 'post_detail' name=episode.name sn=episode.serie en=episode.episode %}">
 <div class="row col-sm-12 episode-row">
-{{episode.title}} {{episode.episode}}. díl
+{{episode.title}} {{episode.episode}}. díl <div class="dab_cz">{% if episode.url1_cc == 1 %}  Cc {%endif%}{% if episode.url2_cc == 1 %} Dab {%endif%}</div>
 </div></a>
 {% endfor %}
 </div>
