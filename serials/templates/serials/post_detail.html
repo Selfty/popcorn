@@ -1,6 +1,14 @@
 {% extends 'serials/base.html' %}
 {% load staticfiles %}
 
+{%block metatags%}
+
+<meta property="og:image" content="../../../static/media/{{serial.image}}">
+<meta property="og:title" content="{{post.title}} | {{serial.title_cz}}">
+<meta property="og:description" content="{{serial.sub_title|truncatechars:100}}">
+
+{%endblock%}
+
 {% block title %}
 
 {{post.title}}
