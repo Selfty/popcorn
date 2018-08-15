@@ -14,8 +14,7 @@ class Post(models.Model):
     url2_cc = models.IntegerField(default=0)
     url1_cz = models.TextField(default='')
     url2_cz = models.TextField(default='')
-    created_date = models.DateTimeField(
-            default=timezone.now)
+    created_date = models.DateTimeField(default=timezone.now)
 
     def publish(self):
         self.save()
@@ -36,7 +35,6 @@ class Serials(models.Model):
     start_yr = models.IntegerField(default=0)
     end_yr = models.IntegerField(default=0)
     zaner = models.TextField(default='')
-    delka = models.IntegerField(default=0)
     delka = models.IntegerField(default=0)
 
     def publish(self):
