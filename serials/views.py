@@ -23,20 +23,16 @@ def post_detail(request, name, sn, en):
 
     if Post.objects.filter(name = name,serie=sn,episode__gt=en).order_by('episode').first():
         next = Post.objects.filter(name = name,serie=sn,episode__gt=en).order_by('episode').first()
-        print(1)
     elif Post.objects.filter(name = name,serie__gt=sn,episode__gte=1).order_by('serie','episode').first():
         next = Post.objects.filter(name = name,serie__gt=sn,episode__gte=1).order_by('serie','episode').first()
-        print(2)
     else:
         next = None
 	#prev episode
 
     if Post.objects.filter(name = name,serie=sn,episode__lt=en).order_by('-episode').first():
         prev = Post.objects.filter(name = name,serie=sn,episode__lt=en).order_by('-episode').first()
-        print(1.1)
     elif Post.objects.filter(name = name,serie__lt=sn).order_by('-serie','-episode').first():
         prev = Post.objects.filter(name=name,serie__lt=sn).order_by('-serie','-episode').first()
-        print(2.2)
     else:
         next = None
 
@@ -65,7 +61,7 @@ def serial(request, name):
     episodes = episodes.values('serie').distinct().order_by('serie')
     
     for ep in episodes:
-        series.append(Post.objects.filter(name=name, serie=ep['serie']).order_by('episode'))
+   cd      series.append(Post.objects.filter(name=name, serie=ep['serie']).order_by('episode'))
 
     return render(request, 'serials/serial.html', {'serial' : serial, 'series' : series})
     
@@ -85,7 +81,7 @@ def get(request, uid):
     if serial :
         return JsonResponse(serials_dict, safe=False)
     else:
-        return JsonResponse(None)
+        return JsonResponse({'serial':''}, safe=False)
 
 @ajax
 def gett(request):
