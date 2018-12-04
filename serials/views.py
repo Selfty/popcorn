@@ -61,7 +61,7 @@ def serial(request, name):
     episodes = episodes.values('serie').distinct().order_by('serie')
     
     for ep in episodes:
-   cd      series.append(Post.objects.filter(name=name, serie=ep['serie']).order_by('episode'))
+        series.append(Post.objects.filter(name=name, serie=ep['serie']).order_by('episode'))
 
     return render(request, 'serials/serial.html', {'serial' : serial, 'series' : series})
     
