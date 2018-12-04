@@ -4,6 +4,7 @@ from .models import Post, Serials, Topserials
 from django.http import JsonResponse
 from django.views.generic.base import View
 from django_ajax.decorators import ajax
+
 from django.contrib.sitemaps import Sitemap
 
 def post_list(request):
@@ -19,27 +20,28 @@ def post_detail(request, name, sn, en):
     toppost = Topserials.objects.first()
 	#next episode
 
-    next_ep = int(en)+1
-    next_se = int(sn)+1
 
-    if Post.objects.filter(name=name,serie=sn,episode=next_ep):
-    	next = Post.objects.filter(name=name,serie=sn,episode=next_ep).first()
-    elif Post.objects.filter(name=name,serie=next_se):
-        next = Post.objects.filter(name=name,serie=next_se).order_by('episode').first()
+    if Post.objects.filter(name = name,serie=sn,episode__gt=en).order_by('episode').first():
+        next = Post.objects.filter(name = name,serie=sn,episode__gt=en).order_by('episode').first()
+        print(1)
+    elif Post.objects.filter(name = name,serie__gt=sn,episode__gte=1).order_by('serie','episode').first():
+        next = Post.objects.filter(name = name,serie__gt=sn,episode__gte=1).order_by('serie','episode').first()
+        print(2)
     else:
-    	next = None
-
+        next = None
 	#prev episode
 
-    prev_ep = int(en)-1
-    prev_se = int(sn)-1
-
-    if Post.objects.filter(name=name,serie=sn,episode=prev_ep):
-    	prev = Post.objects.filter(name=name,serie=sn,episode=prev_ep).first()
-    elif Post.objects.filter(name=name,serie=prev_se):
-        prev = Post.objects.filter(name=name,serie=prev_se).order_by('episode').last()
+    if Post.objects.filter(name = name,serie=sn,episode__lt=en).order_by('-episode').first():
+        prev = Post.objects.filter(name = name,serie=sn,episode__lt=en).order_by('-episode').first()
+        print(1.1)
+    elif Post.objects.filter(name = name,serie__lt=sn).order_by('-serie','-episode').first():
+        prev = Post.objects.filter(name=name,serie__lt=sn).order_by('-serie','-episode').first()
+        print(2.2)
     else:
-    	prev = None
+        next = None
+
+
+
 	
 	#serial
 
@@ -87,7 +89,7 @@ def get(request, uid):
 
 @ajax
 def gett(request):
-    return {'serial' : ''}
+    return JsonResponse({'serial' : ''}, safe = False)
 
 class PostSitemap(Sitemap):
     changefreq = "never"
