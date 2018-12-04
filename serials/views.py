@@ -34,7 +34,7 @@ def post_detail(request, name, sn, en):
     elif Post.objects.filter(name = name,serie__lt=sn).order_by('-serie','-episode').first():
         prev = Post.objects.filter(name=name,serie__lt=sn).order_by('-serie','-episode').first()
     else:
-        next = None
+        prev = None
 
 
 
